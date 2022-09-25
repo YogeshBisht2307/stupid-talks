@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$bgColor: #0c0c0c;
+$onBgColor: #f1f1f1;
+$surfaceColor: #1d1d21;
+$surfaceVariantColor: #34343c;
+$primaryColor: #1f1e36;
+$onPrimaryColor: #ddddf7;
+$errorColor: #de404f;
+$onErrorColor: #ddddf7;
+
+.formContainer {
+  background-color: $bgColor;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: $errorColor;
+    font-size: 14px;
+    align-self: center;
+  }
+
+  .formWrapper {
+    background-color: $onBgColor;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      color: $primaryColor;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .title {
+      color: $primaryColor;
+      font-size: 12px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 80%;
+      margin: auto;
+
+      input {
+        padding: 15px;
+        border: none;
+        background-color: $onBgColor;
+        border-bottom: 1px solid $bgColor;
+        outline: none;
+
+        &::placeholder {
+          color: $surfaceVariantColor;
+        }
+      }
+
+      button {
+        background-color: $bgColor;
+        color: $onBgColor;
+        padding: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        color: $bgColor;
+        cursor: pointer;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    p {
+      color: $bgColor;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.home {
+  background-color: $bgColor;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+
+  .deleteConfirmation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    background-color: $primaryColor;
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+    color: $onPrimaryColor;
+    box-shadow: 10px -2px 50px -50px $onBgColor;
+    border: 1px solid $onBgColor;
+
+    span {
+      color: $errorColor;
+    }
+
+    .confirmationFooter {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      button {
+        padding: 8px 20px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      button:nth-last-child(1) {
+        background-color: $errorColor;
+        color: $onErrorColor;
+      }
+      button:nth-last-child(1):hover {
+        background-color: $errorColor;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .container {
+    box-shadow: 10px -2px 87px -65px $onBgColor;
+    border-radius: 10px;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+
+    .sidebar {
+      flex: 1;
+      background-color: $surfaceColor;
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        background-color: $surfaceVariantColor;
+        height: 50px;
+        padding: 10px;
+        justify-content: space-between;
+        color: $onBgColor;
+
+        .logo {
+          font-weight: bold;
+        }
+
+        .user {
+          display: flex;
+          gap: 10px;
+          position: relative;
+
+          img {
+            background-color: $onPrimaryColor;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .menuIcon {
+            border-radius: 0;
+            transform: rotate(90deg);
+            background: none;
+            filter: invert(0.8);
+            margin: 0px 10px;
+            cursor: pointer;
+          }
+
+          .userDropdownMenu {
+            position: absolute;
+            right: 12%;
+            top: 100%;
+            margin-top: 15px;
+            z-index: 11;
+            background-color: $onPrimaryColor;
+            border-radius: 5px;
+            min-width: 150px;
+            padding: 5px 10px;
+
+            .dropdownItemDivider {
+              height: 1px;
+              background-color: $primaryColor;
+            }
+
+            p {
+              padding: 10px 5px;
+              color: $surfaceColor;
+              font-size: 14px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .search {
+        border-bottom: 1px solid $onBgColor;
+      }
+
+      .searchForm {
+        padding: 10px;
+
+        input {
+          background-color: transparent;
+          border: none;
+          color: $onBgColor;
+          outline: none;
+          width: 100%;
+
+          &::placeholder {
+            color: $onPrimaryColor;
+            opacity: 0.4;
+          }
+        }
+      }
+
+      .chats {
+        overflow: scroll;
+        height: calc(100% - 95px);
+
+        .userChat {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: $onBgColor;
+          cursor: pointer;
+          width: 100%;
+
+          .userChatInfo {
+            flex: 1;
+
+            .lastMessageInfo {
+              flex: 1;
+              display: flex;
+              justify-content: space-between;
+              flex-direction: row;
+              align-items: center;
+            }
+          }
+
+          span {
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          p {
+            font-size: 14px;
+            color: $onPrimaryColor;
+            opacity: 0.6;
+            padding-right: 5px;
+          }
+
+          &:hover {
+            background-color: $surfaceVariantColor;
+          }
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .chat {
+      flex: 2;
+      position: relative;
+
+      .selectChatInfo {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $onPrimaryColor;
+        color: $surfaceVariantColor;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .chatInfo {
+        height: 50px;
+        display: flex;
+        background-color: $primaryColor;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        color: $onBgColor;
+
+        span {
+          font-weight: 600;
+        }
+      }
+
+      .chatIcon {
+        display: flex;
+        gap: 20px;
+
+        img {
+          height: 24px;
+          filter: invert(0.8);
+        }
+      }
+
+      .messages {
+        background-color: $onPrimaryColor;
+        padding: 10px;
+        height: calc(100% - 50px);
+        overflow: scroll;
+        padding-bottom: 8%;
+
+        .message {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 20px;
+
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            color: $primaryColor;
+            font-weight: 300;
+
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            span {
+              font-size: 14px;
+              margin: 2px 0px;
+            }
+          }
+
+          .messageContent {
+            max-width: 80%;
+            min-width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            p {
+              background-color: $onBgColor;
+              padding: 10px 20px;
+              border-radius: 0px 10px 10px 10px;
+              max-width: max-content;
+            }
+
+            img {
+              width: 50%;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+
+            .messageContent {
+              align-items: flex-end;
+
+              p {
+                background-color: $primaryColor;
+                color: $onBgColor;
+                border-radius: 10px 0px 10px 10px;
+                max-width: max-content;
+              }
+            }
+          }
+        }
+      }
+
+      .input {
+        height: 50px;
+        padding: 10px;
+        width: 95%;
+        bottom: 1%;
+        left: 2%;
+        background-color: $onBgColor;
+        border-radius: 10px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .emojiPicker {
+          position: absolute;
+          bottom: 55px;
+          right: 50px;
+        }
+
+        input {
+          width: 100%;
+          background-color: $onBgColor;
+          border: none;
+          outline: none;
+          color: $primaryColor;
+          font-size: 18px;
+
+          &::placeholder {
+            color: $surfaceVariantColor;
+          }
+        }
+      }
+
+      .send {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+          height: 24px;
+          cursor: pointer;
+        }
+
+        button {
+          border: none;
+          padding: 10px 15px;
+          color: $onBgColor;
+          background-color: $primaryColor;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
